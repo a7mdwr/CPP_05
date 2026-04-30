@@ -18,8 +18,10 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 } 
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &Or)
-{
-	_grade = Or._grade;
+{   
+    if (this != &Or) {
+	_grade = Or._grade; // this = *obj, *this = obj, src = obj, &src = *obj
+    }
 	return (*this);
 }
 
