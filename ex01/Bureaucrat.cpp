@@ -17,12 +17,11 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 	_grade = grade;
 } 
 
-Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &Or)
-{   
-    if (this != &Or) {
-	_grade = Or._grade; // this = *obj, *this = obj, src = obj, &src = *obj
+Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &Or){
+    if (this != &Or){
+	    _grade = Or._grade;
     }
-	return (*this);
+    return (*this);
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw(){
@@ -57,4 +56,14 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &B)
 {
 	out << B.getName() << " bureaucrat grade is " << B.getGrade();
     return out;
+}
+
+void Bureaucrat::signForm(Form &f){
+    try{
+        f.beSigned(*this);
+        std::cout << _name << " signed " << f.getName() << std::endl;
+    }
+    catch(std::exception &e){
+        std::cout << _name << " couldn't sign " << f.getName() << " because " << e.what();
+    }
 }
