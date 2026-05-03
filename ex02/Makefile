@@ -1,6 +1,6 @@
-NAME = Bureaucrat
+NAME = a.out
 
-SRC = main.cpp  Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRC = main.cpp  Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
