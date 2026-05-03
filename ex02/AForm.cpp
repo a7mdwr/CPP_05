@@ -58,8 +58,10 @@ void AForm::beSigned(const Bureaucrat &b){
     if (b.getGrade() <= _gradeToSign){
         if (_Signed == true)
             std::cout << "Form " << _name << " is already signed!" << std::endl;
-        else
+        else{
             _Signed = true;
+            std::cout << "The grade has been signed" << std::endl;
+        }
     }
     else if (b.getGrade() > _gradeToSign)
         throw AForm::GradeTooLowExcption();

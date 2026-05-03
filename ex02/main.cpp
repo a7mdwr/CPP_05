@@ -1,26 +1,23 @@
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
-    std::cout << "--- Boundary Test: Exact Grade ---" << std::endl;
-    try {
-    
-        Bureaucrat boss("The Boss", 1); 
-        Bureaucrat intern("The Intern", 150);
+    Bureaucrat Ahmad("Ahmad", 1);
 
-        Form ultraSecret("Ultra Secret", 1, 1);
-        
-        std::cout << intern << std::endl;
-        intern.signForm(ultraSecret);
-        
-        std::cout << std::endl << boss << std::endl;
-        boss.signForm(ultraSecret);
-        
-        std::cout << std::endl << ultraSecret << std::endl;
-    } catch (std::exception &e) {
-        std::cout << "Unexpected Error: " << e.what() << std::endl;
-    }
+    ShrubberyCreationForm shrubberyForm("garden");
+    // RobotomyRequestForm robotomyForm("Ahmad");
+    // PresidentialPardonForm presidentialForm("Alice");
+
+    Ahmad.signForm(shrubberyForm);
+    // Ahmad.signForm(robotomyForm);
+    // Ahmad.signForm(presidentialForm);
+
+    Ahmad.executeForm(shrubberyForm);
+    // Ahmad.executeForm(robotomyForm);
+    // Ahmad.executeForm(presidentialForm);
 
     return 0;
 }

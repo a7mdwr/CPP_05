@@ -19,6 +19,7 @@ class AForm{
             const char *what() const throw();
         };
 
+
         AForm();
         virtual ~AForm();
         AForm(const AForm &src);
